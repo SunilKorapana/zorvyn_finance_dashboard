@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>FinView Dashboard | Personal Finance Tracker</title>
+  
+  <!-- Google Fonts + Font Awesome Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="dashboard-container">
+  <!-- Header with Role Switcher -->
+  <div class="header">
+    <div class="title-section">
+      <h1><i class="fas fa-chart-line"></i> FinView Dashboard</h1>
+      <p>Track spending, income & insights — smart finance overview</p>
+    </div>
+    <div class="role-card">
+      <span><i class="fas fa-user-tag"></i> Role:</span>
+      <select id="roleSwitcher" class="role-select">
+        <option value="viewer">👁️ Viewer (read only)</option>
+        <option value="admin">🛠️ Admin (add/edit/delete)</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Summary Cards -->
+  <div class="summary-grid" id="summaryGrid"></div>
+
+  <!-- Charts Row -->
+  <div class="charts-row">
+    <div class="chart-box">
+      <h3><i class="fas fa-chart-line"></i> Balance Trend (Last 6 months)</h3>
+      <canvas id="trendChart" width="400" height="180"></canvas>
+    </div>
+    <div class="chart-box">
+      <h3><i class="fas fa-chart-pie"></i> Spending by Category</h3>
+      <canvas id="categoryChart" width="400" height="180"></canvas>
+    </div>
+  </div>
+
+  <!-- Transactions + Insights Section -->
+  <div class="transactions-insights">
+    <div class="transactions-section">
+      <div class="section-header">
+        <h3><i class="fas fa-receipt"></i> Transactions</h3>
+        <div class="filter-controls">
+          <input type="text" id="searchInput" placeholder="🔍 Search (desc/amount)" class="search-input">
+          <select id="typeFilter" class="filter-input">
+            <option value="all">All types</option>
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+          </select>
+          <select id="sortSelect" class="sort-select">
+            <option value="date-desc">Latest first</option>
+            <option value="date-asc">Oldest first</option>
+            <option value="amount-desc">Amount (high→low)</option>
+            <option value="amount-asc">Amount (low→high)</option>
+          </select>
+        </div>
+      </div>
+      <div id="transactionsList" class="transaction-list"></div>
+      
+      <!-- Add Transaction Form (visible only for admin) -->
+      <div id="addTransactionForm" class="add-transaction" style="display: none;">
+        <input type="text" id="newDesc" placeholder="Description" class="add-input">
+        <input type="number" id="newAmount" placeholder="Amount (USD)" class="add-input">
+        <select id="newCategory" class="add-input">
+          <option value="Food">Food</option>
+          <option value="Transport">Transport</option>
+          <option value="Shopping">Shopping</option>
+          <option value="Bills">Bills</option>
+          <option value="Salary">Salary</option>
+          <option value="Freelance">Freelance</option>
+        </select>
+        <select id="newType" class="add-input">
+          <option value="expense">Expense</option>
+          <option value="income">Income</option>
+        </select>
+        <button id="addTransactionBtn" class="btn-primary">+ Add Transaction</button>
+      </div>
+    </div>
+    
+    <div class="insights-section">
+      <h3><i class="fas fa-lightbulb"></i> Smart Insights</h3>
+      <div id="insightsContainer"></div>
+    </div>
+  </div>
+  <footer>📊 Demo dashboard — role based UI (Admin can add/edit/delete transactions)</footer>
+</div>
+
+<!-- Custom JavaScript -->
+<script src="script.js"></script>
+</body>
+</html>
