@@ -2,6 +2,9 @@
 
 A clean, interactive finance dashboard that helps users track income, expenses, and spending patterns with role-based access control.
 
+## Problem Statement
+Managing personal finances is difficult due to lack of clear insights into spending patterns. This dashboard helps users track income, expenses, and identify trends visually.
+
 ## Features
 
 - **Summary Cards** - Total Balance, Income, Expenses
@@ -39,3 +42,6 @@ A clean, interactive finance dashboard that helps users track income, expenses, 
 
 ## Admin View
 ![Admin](images/image-1.png)
+
+## Live Demo
+👉 https://SunilKorapana.github.io/zorvyn_finance_dashboard
