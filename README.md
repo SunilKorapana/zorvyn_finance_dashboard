@@ -35,7 +35,7 @@ A clean, interactive finance dashboard that helps users track income, expenses, 
 
 ## Reference Dashboard Images
 ## Viewer View
-![alt text](C:\Users\sunil\Downloads\zorvyn_finance_dashboard\images\image.png)
+![Viewer](images/image.png)
 
 ## Admin View
-![alt text](C:\Users\sunil\Downloads\zorvyn_finance_dashboard\images\image-1.png)
+![Admin](images/image-1.png)
